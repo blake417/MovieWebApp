@@ -19,21 +19,17 @@
           <% @movies.each do |movie| %>
             <tr>
               <td><%= movie["title"] %></td>
-              <td><%= movie["released"] %></td>
+              <td><%= movie["released"].strftime("%Y-%m-%d") %></td>
               <!-- using #{} which is essentially toString() -->
-              <td><%= Genre.connection
-                .select_one("SELECT *
-                FROM genres
-                WHERE id = #{movie['genre_id']}"
-                )["name"] %></td>
+              <td><%= movie["genre_name"] %></td>
               <td>
-                <%= link_to 'Show', movie, class: "btn btn-info btn-sm"%>
+                <%= link_to 'Show', movie_url(movie["id"]), class: "btn btn-info btn-sm"%>
               </td>
               <td>
-                <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-warning btn-sm" %>
+                <%= link_to 'Edit', edit_movie_path(movie["id"]), class: "btn btn-warning btn-sm" %>
               </td>
               <td>
-                <%= link_to 'Destroy', movie,
+                <%= link_to 'Destroy', movie_url(movie["id"]),
                     method: :delete,
                     data: { confirm: 'Are you sure?' },
                     class: "btn btn-danger btn-sm"%></td>

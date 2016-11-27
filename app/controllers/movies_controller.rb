@@ -4,7 +4,14 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.connection.select_all("SELECT * FROM movies;")
+    @movies = Movie.connection
+      .select_all("SELECT m.id AS id,
+                          m.title AS title,
+                          m.released AS released, 
+                          g.name AS genre_name
+                    FROM movies m
+                    INNER JOIN genres g
+                    ON g.id = m.genre_id;")
   end
 
   # GET /movies/1
