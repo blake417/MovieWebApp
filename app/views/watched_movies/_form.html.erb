@@ -1,0 +1,11 @@
+<%= form_for(watched_movie, url: watched_movies_create_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :movie_id %>
+      <%= f.select :movie_id, @movies, {}, class: "form-control" %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

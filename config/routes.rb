@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'watched_movies/new', to: 'watched_movies#new', as: 'new_watched_movie'
+  post 'watched_movies/create', to: 'watched_movies#create'
+
   root to: 'dashboard#index'
 
   get '/profile', to: 'dashboard#profile', as: "profile"

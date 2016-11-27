@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Welcome <%= current_user.name %></h1>
+      <%= link_to "Add Watched Movie", new_watched_movie_path %>
+
+      <hr>
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Date Watched</th>
+        </thead>
+
+        <tbody>
+          <% @my_watched_movies.each do |watched_movie| %>
+          <tr>
+            <td><%= watched_movie.movie.title %></td>
+            <td><%= watched_movie.created_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
