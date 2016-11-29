@@ -1,10 +1,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <div class="jumbotron text-center" >
-        <h1>Welcome to the</h1>
-        <h1> Movie Web App </h1>
+      <div class="jumbotron text-center">
+        <h1>Welcome</h1>
+        <h1>Movie Web App</h1>
           <%= link_to "Create Account", new_user_path, class: "btn btn-primary btn-lg"%>
+          <style>
+            div.jumbotron
+            {
+              opacity: 0.95;
+            }
+            body{
+              background-image: url("movie-montage.png");
+            }
+          </style>
       </div>
     </div>
   </div>
