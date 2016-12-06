@@ -14,8 +14,8 @@
         <tbody>
           <% @my_watched_movies.each do |watched_movie| %>
           <tr>
-            <td><%= watched_movie.movie.title %></td>
-            <td><%= watched_movie.created_at %></td>
+            <td><%= watched_movie["title"] %></td>
+            <td><%= watched_movie["created_at"] %></td>
           </tr>
           <% end %>
         </tbody>
